@@ -1,0 +1,37 @@
+{
+  "skills": [{
+    "level": "3",
+    "name": "jifre"
+  }],
+  "basics": {
+    "summary": "Applying to Enterprise: sprint\nFor Job:Commercial\nNationality : bahraini\nDriving Licence: True\n",
+    "phone": "98754215",
+    "name": "test test",
+    "profiles": [{
+      "url": "ihdezihdzeih",
+      "network": "dezhiduhez"
+    }],
+    "location": {"address": "testa"},
+    "email": "test@test.com",
+    "picture": "C:\\Users\\Tawfik\\Documents\\GitHub\\deploy-babe\\Backend/src/output/images/image23.png"
+  },
+  "education": [{
+    "area": "dezoijdoze",
+    "institution": "dojeozd",
+    "endDate": "2019-12-31"
+  }],
+  "languages": [{
+    "fluency": "debutant",
+    "language": "frezefji"
+  }],
+  "work": [{
+    "endDate": "2019-12-31",
+    "company": "fezojfez",
+    "position": "oijfezojf",
+    "startDate": "2018-12-30"
+  }],
+  "interests": [{
+    "keywords": ["ofjezfj"],
+    "name": "ifezoj"
+  }]
+}

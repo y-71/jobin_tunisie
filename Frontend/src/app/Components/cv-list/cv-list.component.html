@@ -1,0 +1,44 @@
+
+<div class="card container-fluid fix-margin">
+   
+<div class="row">
+    <h4>Liste des demandes</h4>
+</div>
+ 
+ <div class="card-body col-md-12">
+      <mat-form-field class="col-md-12">
+
+              <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtre ...">
+            </mat-form-field>
+            <mat-paginator class="col-md-12" [pageSizeOptions]="[5, 10, 20,50,100]" showFirstLastButtons></mat-paginator>
+            <table mat-table [dataSource]="dataSource" matSort  class="table table-hover table-striped">
+    
+              <!-- id Column -->
+                   <!-- Name Column -->
+             <ng-container matColumnDef="firstName">
+                         <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom </th>
+                         <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+             </ng-container>
+                  <!-- Name Column -->
+                  <ng-container matColumnDef="lastName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Prenom </th>
+                    <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+        </ng-container>
+                  <!-- email Column -->
+                  <ng-container matColumnDef="email">
+                   <th mat-header-cell *matHeaderCellDef mat-sort-header> E-mail </th>
+                   <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+           </ng-container>
+             <ng-container  matColumnDef="actions">
+                  <th mat-header-cell *matHeaderCellDef    > Curriculum Vitae </th>
+                  <td mat-cell *matCellDef="let element">
+                     <a  matTooltip="Telecharger en pdf" [routerLink]="" (click)="downloadCV(element.id)" ><mat-icon >assignment_returned</mat-icon></a>
+          
+                  </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns; "></tr>
+           </table>
+            
+ </div>
+</div>

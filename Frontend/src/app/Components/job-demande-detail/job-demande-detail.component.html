@@ -1,0 +1,53 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!-- details card section starts from here -->
+<section class="details-card" *ngIf="jobDemande">
+    <h2>Les details de votre demande</h2>
+    <hr>
+    <div class="container" >
+        <div class="row">
+          
+
+                <div class="col-md-10 " >
+                    <div class="divup" >
+                        <div class="card-content">
+                            
+                            <div class="card-desc">
+                                <h4>L’entreprise  </h4>
+                                <h3>{{this.jobDemande.jobOffer.enterprise.name}}</h3>
+                                <div class="linediv">
+                                        <h4 > Le  chercheur d'emploi:</h4>
+                                        <h3>{{this.sender.username}}</h3>
+                                </div>
+                                <h4>a envoyé son CV concernant le </h4>
+                                <div class="linediv">
+                                        <h4 >Poste:</h4>
+                                        <h3>{{this.jobDemande.jobOffer.job.name}}</h3>
+                                </div>
+                             <!--    
+                                <button class="btn-card btn-primary" >close</button>   
+                                --> 
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+        </div>
+        <div class="row">
+             <div class="col-md-12">
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-description>
+                         <h4> voir details du Curriculum Vitae</h4> 
+                      </mat-panel-description>
+                    </mat-expansion-panel-header>
+                        <app-cv-display [jobDemande]="jobDemande" 
+                               [cv]="jobDemandeCV" (decisionEmitter)="getDecision($event)"></app-cv-display>
+                  </mat-expansion-panel>
+             </div>
+        </div>
+    </div>
+</section>
+<!-- details card section starts from here -->

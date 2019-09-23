@@ -1,0 +1,624 @@
+<div class="main-content" >
+<!--  <p-messages [(value)]="msgs"></p-messages>-->
+  <div class="container-fluid">
+    <div class="card text-center">
+
+
+      <div class="row">
+        
+            <div class="row ">
+                <div class="col-md-8">
+                  <div *ngIf="submitted && !imageUploaded" class="redalerte">
+                       Inserer votre photo!!!
+                  </div>
+                </div>
+                <div class="col-md-4">
+                    <app-upload [submitted]="submitted"(imageEmitter)="getImage($event)" ></app-upload>
+                
+                </div>
+                 
+            </div>
+          
+        
+      </div>
+      <hr>
+      <div class="row">
+        
+
+          <div class="content">
+            <form [formGroup]="CVForm" (ngSubmit)="onSubmit()" style="padding: 50px;">
+              <div class="form-group aalimin">
+                <label>Prénom:</label>
+                <input formControlName="firstName" type="text" class="form-control na9eswidth" 
+                     placeholder="Prénom" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }">
+                     <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                      <div *ngIf="f.firstName.errors.required">Prénom est obligatoire</div>
+                      <div *ngIf="f.firstName.errors?.minlength">
+                         Prénom doit contenir au moins 2 caractères
+                      </div> 
+                      <div *ngIf="f.firstName.errors?.maxlength">
+                        Prénom doit comporter au plus  8 caractères
+                     </div> 
+                  </div>
+              </div>
+
+              <div class="form-group aalimin">
+                  <label>Nom:</label>
+                  <input formControlName="lastName" type="text" class="form-control na9eswidth" 
+                      placeholder="Nom" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }">
+                      <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">                  
+                        <div *ngIf="f.lastName.errors.required">Nom est obligatoire</div>
+                        <div *ngIf="f.lastName.errors?.minlength">
+                           Nom doit contenir au moins 2 caractères
+                        </div> 
+                        <div *ngIf="f.lastName.errors?.maxlength">
+                          Nom doit comporter au plus  8 caractères
+                       </div> 
+                    </div>
+                </div>
+
+                <div class="form-group aalimin">
+                    <label>Date de naissance:</label>
+                    <input type="date" class="form-control na9eswidth" 
+                       placeholder="Date de naissance" formControlName="birthDay"
+                       [ngClass]="{ 'is-invalid': submitted && f.birthDay.errors }" >
+                       <div *ngIf="submitted && f.birthDay.errors" class="invalid-feedback">
+                             saisir votre date de naissance
+                       </div>           
+                  </div>
+                  
+                    <div class="custom-control custom-checkbox aalimin">
+                      <label>Permis de conduire:</label>
+                      
+                      <select name="DrivingLicence" formControlName="drivingLicence" 
+                         class="form-control na9eswidth" [ngClass]="{ 'is-invalid': submitted && f.nationality.errors }">
+                            <option value="" >Disposez vous d'un permis de conduire</option>
+                            <option value="True">Oui</option>
+                            <option value="False">Non</option>
+                        </select>
+                    </div>
+                    <br>
+                  <div class="form-group aalimin">
+                      <label>Nationalité:</label>
+                      <select name="nationality" formControlName="nationality" 
+                         class="form-control na9eswidth" [ngClass]="{ 'is-invalid': submitted && f.nationality.errors }">
+                      <option value="" >Choisir votre nationalité</option>
+  <option value="afghan">Afghan</option>
+  <option value="albanian">Albanian</option>
+  <option value="algerian">Algerian</option>
+  <option value="american">American</option>
+  <option value="andorran">Andorran</option>
+  <option value="angolan">Angolan</option>
+  <option value="antiguans">Antiguans</option>
+  <option value="argentinean">Argentinean</option>
+  <option value="armenian">Armenian</option>
+  <option value="australian">Australian</option>
+  <option value="austrian">Austrian</option>
+  <option value="azerbaijani">Azerbaijani</option>
+  <option value="bahamian">Bahamian</option>
+  <option value="bahraini">Bahraini</option>
+  <option value="bangladeshi">Bangladeshi</option>
+  <option value="barbadian">Barbadian</option>
+  <option value="barbudans">Barbudans</option>
+  <option value="batswana">Batswana</option>
+  <option value="belarusian">Belarusian</option>
+  <option value="belgian">Belgian</option>
+  <option value="belizean">Belizean</option>
+  <option value="beninese">Beninese</option>
+  <option value="bhutanese">Bhutanese</option>
+  <option value="bolivian">Bolivian</option>
+  <option value="bosnian">Bosnian</option>
+  <option value="brazilian">Brazilian</option>
+  <option value="british">British</option>
+  <option value="bruneian">Bruneian</option>
+  <option value="bulgarian">Bulgarian</option>
+  <option value="burkinabe">Burkinabe</option>
+  <option value="burmese">Burmese</option>
+  <option value="burundian">Burundian</option>
+  <option value="cambodian">Cambodian</option>
+  <option value="cameroonian">Cameroonian</option>
+  <option value="canadian">Canadian</option>
+  <option value="cape verdean">Cape Verdean</option>
+  <option value="central african">Central African</option>
+  <option value="chadian">Chadian</option>
+  <option value="chilean">Chilean</option>
+  <option value="chinese">Chinese</option>
+  <option value="colombian">Colombian</option>
+  <option value="comoran">Comoran</option>
+  <option value="congolese">Congolese</option>
+  <option value="costa rican">Costa Rican</option>
+  <option value="croatian">Croatian</option>
+  <option value="cuban">Cuban</option>
+  <option value="cypriot">Cypriot</option>
+  <option value="czech">Czech</option>
+  <option value="danish">Danish</option>
+  <option value="djibouti">Djibouti</option>
+  <option value="dominican">Dominican</option>
+  <option value="dutch">Dutch</option>
+  <option value="east timorese">East Timorese</option>
+  <option value="ecuadorean">Ecuadorean</option>
+  <option value="egyptian">Egyptian</option>
+  <option value="emirian">Emirian</option>
+  <option value="equatorial guinean">Equatorial Guinean</option>
+  <option value="eritrean">Eritrean</option>
+  <option value="estonian">Estonian</option>
+  <option value="ethiopian">Ethiopian</option>
+  <option value="fijian">Fijian</option>
+  <option value="filipino">Filipino</option>
+  <option value="finnish">Finnish</option>
+  <option value="french">French</option>
+  <option value="gabonese">Gabonese</option>
+  <option value="gambian">Gambian</option>
+  <option value="georgian">Georgian</option>
+  <option value="german">German</option>
+  <option value="ghanaian">Ghanaian</option>
+  <option value="greek">Greek</option>
+  <option value="grenadian">Grenadian</option>
+  <option value="guatemalan">Guatemalan</option>
+  <option value="guinea-bissauan">Guinea-Bissauan</option>
+  <option value="guinean">Guinean</option>
+  <option value="guyanese">Guyanese</option>
+  <option value="haitian">Haitian</option>
+  <option value="herzegovinian">Herzegovinian</option>
+  <option value="honduran">Honduran</option>
+  <option value="hungarian">Hungarian</option>
+  <option value="icelander">Icelander</option>
+  <option value="indian">Indian</option>
+  <option value="indonesian">Indonesian</option>
+  <option value="iranian">Iranian</option>
+  <option value="iraqi">Iraqi</option>
+  <option value="irish">Irish</option>
+  <option value="italian">Italian</option>
+  <option value="ivorian">Ivorian</option>
+  <option value="jamaican">Jamaican</option>
+  <option value="japanese">Japanese</option>
+  <option value="jordanian">Jordanian</option>
+  <option value="kazakhstani">Kazakhstani</option>
+  <option value="kenyan">Kenyan</option>
+  <option value="kittian and nevisian">Kittian and Nevisian</option>
+  <option value="kuwaiti">Kuwaiti</option>
+  <option value="kyrgyz">Kyrgyz</option>
+  <option value="laotian">Laotian</option>
+  <option value="latvian">Latvian</option>
+  <option value="lebanese">Lebanese</option>
+  <option value="liberian">Liberian</option>
+  <option value="libyan">Libyan</option>
+  <option value="liechtensteiner">Liechtensteiner</option>
+  <option value="lithuanian">Lithuanian</option>
+  <option value="luxembourger">Luxembourger</option>
+  <option value="macedonian">Macedonian</option>
+  <option value="malagasy">Malagasy</option>
+  <option value="malawian">Malawian</option>
+  <option value="malaysian">Malaysian</option>
+  <option value="maldivan">Maldivan</option>
+  <option value="malian">Malian</option>
+  <option value="maltese">Maltese</option>
+  <option value="marshallese">Marshallese</option>
+  <option value="mauritanian">Mauritanian</option>
+  <option value="mauritian">Mauritian</option>
+  <option value="mexican">Mexican</option>
+  <option value="micronesian">Micronesian</option>
+  <option value="moldovan">Moldovan</option>
+  <option value="monacan">Monacan</option>
+  <option value="mongolian">Mongolian</option>
+  <option value="moroccan">Moroccan</option>
+  <option value="mosotho">Mosotho</option>
+  <option value="motswana">Motswana</option>
+  <option value="mozambican">Mozambican</option>
+  <option value="namibian">Namibian</option>
+  <option value="nauruan">Nauruan</option>
+  <option value="nepalese">Nepalese</option>
+  <option value="new zealander">New Zealander</option>
+  <option value="ni-vanuatu">Ni-Vanuatu</option>
+  <option value="nicaraguan">Nicaraguan</option>
+  <option value="nigerien">Nigerien</option>
+  <option value="north korean">North Korean</option>
+  <option value="northern irish">Northern Irish</option>
+  <option value="norwegian">Norwegian</option>
+  <option value="omani">Omani</option>
+  <option value="pakistani">Pakistani</option>
+  <option value="palauan">Palauan</option>
+  <option value="panamanian">Panamanian</option>
+  <option value="papua new guinean">Papua New Guinean</option>
+  <option value="paraguayan">Paraguayan</option>
+  <option value="peruvian">Peruvian</option>
+  <option value="polish">Polish</option>
+  <option value="portuguese">Portuguese</option>
+  <option value="qatari">Qatari</option>
+  <option value="romanian">Romanian</option>
+  <option value="russian">Russian</option>
+  <option value="rwandan">Rwandan</option>
+  <option value="saint lucian">Saint Lucian</option>
+  <option value="salvadoran">Salvadoran</option>
+  <option value="samoan">Samoan</option>
+  <option value="san marinese">San Marinese</option>
+  <option value="sao tomean">Sao Tomean</option>
+  <option value="saudi">Saudi</option>
+  <option value="scottish">Scottish</option>
+  <option value="senegalese">Senegalese</option>
+  <option value="serbian">Serbian</option>
+  <option value="seychellois">Seychellois</option>
+  <option value="sierra leonean">Sierra Leonean</option>
+  <option value="singaporean">Singaporean</option>
+  <option value="slovakian">Slovakian</option>
+  <option value="slovenian">Slovenian</option>
+  <option value="solomon islander">Solomon Islander</option>
+  <option value="somali">Somali</option>
+  <option value="south african">South African</option>
+  <option value="south korean">South Korean</option>
+  <option value="spanish">Spanish</option>
+  <option value="sri lankan">Sri Lankan</option>
+  <option value="sudanese">Sudanese</option>
+  <option value="surinamer">Surinamer</option>
+  <option value="swazi">Swazi</option>
+  <option value="swedish">Swedish</option>
+  <option value="swiss">Swiss</option>
+  <option value="syrian">Syrian</option>
+  <option value="taiwanese">Taiwanese</option>
+  <option value="tajik">Tajik</option>
+  <option value="tanzanian">Tanzanian</option>
+  <option value="thai">Thai</option>
+  <option value="togolese">Togolese</option>
+  <option value="tongan">Tongan</option>
+  <option value="trinidadian or tobagonian">Trinidadian or Tobagonian</option>
+  <option value="tunisian">Tunisian</option>
+  <option value="turkish">Turkish</option>
+  <option value="tuvaluan">Tuvaluan</option>
+  <option value="ugandan">Ugandan</option>
+  <option value="ukrainian">Ukrainian</option>
+  <option value="uruguayan">Uruguayan</option>
+  <option value="uzbekistani">Uzbekistani</option>
+  <option value="venezuelan">Venezuelan</option>
+  <option value="vietnamese">Vietnamese</option>
+  <option value="welsh">Welsh</option>
+  <option value="yemenite">Yemenite</option>
+  <option value="zambian">Zambian</option>
+  <option value="zimbabwean">Zimbabwean</option>
+</select>
+<div *ngIf="submitted && f.nationality.errors" class="invalid-feedback">
+  <div *ngIf="f.nationality.errors.required">entrez une nationalité</div>
+</div>
+                    </div>
+      
+                    <div class="form-group aalimin">
+                        <label>Adresse</label>
+                        <input type="text" class="form-control na9eswidth" placeholder="adresse" 
+                        formControlName="address" [ngClass]="{ 'is-invalid': submitted && f.address.errors }">
+                        <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+                          <div *ngIf="f.address.errors.required">entrez une adresse</div>
+                      </div>
+                      </div>
+                      <div class="form-group aalimin">
+                        <label>Sexe</label>
+                        <select type="text" class="form-control na9eswidth" 
+                            placeholder="sexe" formControlName="sex" [ngClass]="{ 'is-invalid': submitted && f.sex.errors }">
+                            <option value="Homme">Homme</option>
+                            <option value="Femme">Femme</option>
+                          </select>
+                          <div *ngIf="submitted && f.sex.errors" class="invalid-feedback">
+                            <div *ngIf="f.sex.errors.required">entrez votre sexe</div>
+                        </div>
+                      </div>
+
+              <div class="form-group aalimin">
+                <label >Téléphone</label>
+                <input type="text" class="form-control na9eswidth" placeholder="Téléphone" formControlName="phone"
+                [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" >
+                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                  <div *ngIf="f.phone.errors.required">votre numero de telephone est obligatoire</div>
+                 
+              </div>
+              </div>
+
+              <div class="form-group aalimin">
+                <label for="exampleInputEmail1">Adresse E-mail</label>
+                <input type="email" class="form-control na9eswidth" placeholder="E-mail" formControlName="email" 
+                     [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                  <div *ngIf="f.email.errors.required">votre adresse mail est obligatoire</div>
+                  <div *ngIf="f.email.errors.email">adresse mail non valide</div>
+              </div>
+              </div>
+              <hr>
+              <div class="row">
+                <label>Compétences informatiques :</label>
+                <br>
+                <div>
+                  <div formArrayName="softwares" >
+                    <div  *ngFor="let software of CVForm.get('softwares')['controls']; let i = index">
+                      <div [formGroupName]="i" class="row">
+                        <div  class="col-md-4">
+                          <input formControlName="name" class="form-control" 
+                               placeholder="logiciels" 
+                               [ngClass]="{ 'is-invalid': submitted &&  software.get('name').errors }" >
+                               <div *ngIf="submitted &&  software.get('name').errors " class="invalid-feedback">
+                                  entrez au minimum un logiciel 
+                              </div>    
+                        </div>
+                        <div  class="col-md-4">
+                          <!--
+                          <input formControlName="level" class="form-control" type="number" placeholder="Niveau" >
+                          -->
+                          <select name="level" formControlName="level" 
+                              class="form-control"  [ngClass]="{ 'is-invalid': submitted && software.get('level').errors }">
+                            <option value="" disabled selected hidden>Niveau</option>
+                            <option value="Débutant">Débutant</option>
+                            <option value="Intermédiaire">Intermédiaire</option>
+                            <option value="Avancé">Avancé</option>
+                          </select>
+                          <div *ngIf="submitted &&  software.get('level').errors" class="invalid-feedback">
+                              selectionnez un niveau 
+                          </div>
+
+                        </div>
+                        <button type="button" class="btn btn-primary small" (click)="deleteLogicielClick(i)">
+                          del
+                        </button>
+                        
+                      <button type="button" class="btn btn-primary small plusB" (click)="addLogicielClick()">
+                        +
+                      </button>
+                      </div>
+                      <br>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <label>Compétences linguistiques :</label>
+                
+                <div>
+
+
+                  <div formArrayName="languages" >
+                    <div  *ngFor="let language of CVForm.get('languages')['controls']; let i = index">
+                      <div [formGroupName]="i" class="row">
+                        <div class="col-md-4">
+                          <input formControlName="name" class="form-control" placeholder="langue" 
+                          [ngClass]="{ 'is-invalid': submitted && language.get('name').errors }">
+                          <div *ngIf="submitted &&  language.get('name').errors " class="invalid-feedback">
+                              entrez au minimum une langue 
+                          </div>  
+                        </div>
+
+                        <div class="col-md-4">
+                        <!--
+                          <input formControlName="level" class="form-control"  type="text"  >
+                        -->
+                          <select name="level"class="form-control" formControlName="level"
+                          [ngClass]="{ 'is-invalid': submitted && language.get('level').errors }">
+                            <option value="" disabled selected hidden>Niveau</option>
+                            <option value="debutant">Débutant</option>
+                            <option value="intermediaire">intermediaire</option>
+                            <option value="avancé">avancé</option>
+                          </select>
+                          <div *ngIf="submitted &&  language.get('level').errors " class="invalid-feedback">
+                              selectionnez un niveau
+                          </div> 
+                        </div>
+
+
+
+                        <button type="button" class="btn btn-primary small" (click)="deleteLangueClick(i)">
+                          del
+                        </button>
+                        <button type="button" class="btn btn-primary small plusB" (click)="addLangueClick()">
+                          +
+                        </button>
+
+                      </div>
+
+                    </div>
+                  </div>
+                  <br>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <label>Intérêts  :</label>
+                
+                <div>
+
+
+                  <div formArrayName="interests" >
+                    <div  *ngFor="let interest of CVForm.get('interests')['controls']; let i = index">
+                      <div [formGroupName]="i" class="row">
+                        <div class="col-md-4">
+                          <input formControlName="name"  class="form-control" placeholder="Intérêt"
+                          [ngClass]="{ 'is-invalid': submitted && interest.get('name').errors }" >
+                          <div *ngIf="submitted &&  interest.get('name').errors " class="invalid-feedback">
+                              selectionnez un interet
+                          </div> 
+                        </div>
+                        <div class="col-md-4">
+                          <textarea  formControlName="description" class="form-control" placeholder="description"
+                          [ngClass]="{ 'is-invalid': submitted && interest.get('description').errors }"></textarea>
+                          <div *ngIf="submitted &&  interest.get('description').errors " class="invalid-feedback">
+                             entrez une description
+                          </div> 
+                          
+                        </div>
+
+                        <button type="button" class="btn btn-primary small" (click)="deleteInteretClick(i)">
+                          del
+                        </button>
+                        <button type="button" class="btn btn-primary small plusB" (click)="addInteretClick()">
+                          +
+                        </button>
+
+                      </div>
+
+                    </div>
+                    <br>
+                  </div>
+                </div>
+              </div>
+               <hr>
+                <div class="row">
+                  <label>Expériences Professionnelles</label>
+                  
+                  <div>
+
+
+                    <div formArrayName="professionalExperiences" >
+                      <div  *ngFor="let experiences_professionnelle of CVForm.get('professionalExperiences')['controls']; let i = index">
+                        <div [formGroupName]="i" class="row">
+                          <div class="col-md-2">
+                            <input formControlName="enterprise" class="form-control" placeholder="Entreprise"
+                            [ngClass]="{ 'is-invalid': submitted && experiences_professionnelle.get('enterprise').errors }">
+                            <div *ngIf="submitted &&  experiences_professionnelle.get('enterprise').errors " class="invalid-feedback">
+                                entrez une entreprise
+                             </div> 
+                          </div>
+                          <div class="col-md-2">
+                            <input formControlName="post" class="form-control" placeholder="poste" 
+                            [ngClass]="{ 'is-invalid': submitted && experiences_professionnelle.get('post').errors }">
+                            <div *ngIf="submitted &&  experiences_professionnelle.get('post').errors " class="invalid-feedback">
+                                entrez un poste
+                             </div>
+                          </div>
+                          <div class="col-md-2">
+                            <input formControlName="startingDate" type="date" class="form-control" placeholder="Date de debut" 
+                            [ngClass]="{ 'is-invalid': submitted && experiences_professionnelle.get('startingDate').errors }">
+                            <div *ngIf="submitted &&  experiences_professionnelle.get('startingDate').errors " class="invalid-feedback">
+                                entrez une date de debut
+                             </div>
+                          </div>
+                          <div class="col-md-2">
+                            <input formControlName="finishingDate" type="date" class="form-control" placeholder="Date de fin" 
+                            [ngClass]="{ 'is-invalid': submitted && experiences_professionnelle.get('finishingDate').errors }">
+                            <div *ngIf="submitted &&  experiences_professionnelle.get('finishingDate').errors " class="invalid-feedback">
+                                entrez une date de fin
+                             </div>
+                          </div>
+                          <div class="col-md-4">
+                              <textarea   class="form-control" placeholder="descriptif" formControlName="description"
+                                [ngClass]="{ 'is-invalid': submitted && experiences_professionnelle.get('description').errors }"
+                                ></textarea>
+                                <div *ngIf="submitted &&  experiences_professionnelle.get('description').errors " class="invalid-feedback">
+                                    entrez une description 
+                                 </div>
+                              </div>
+                          <br>
+                        
+                          
+                         
+                          <br>
+                          <button type="button" class="btn btn-primary small" (click)="deleteExperienceClick(i)">
+                            del
+                          </button>
+                          <button type="button" class="btn btn-primary small plusB" (click)="addExperienceClick()">
+                            +
+                          </button>
+
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <label>Formations</label>
+
+                  <div>
+                    <div formArrayName="studies" >
+                      <div  *ngFor="let study of CVForm.get('studies')['controls']; let i = index">
+                        <div [formGroupName]="i" class="row">
+                          <div class="col-md-2">
+                            <input formControlName="name" class="form-control" placeholder="intitulé" 
+                            [ngClass]="{ 'is-invalid': submitted && study.get('name').errors }">
+                            <div *ngIf="submitted &&  study.get('name').errors " class="invalid-feedback">
+                                entrez une formation
+                             </div>
+                          </div>
+                          <div class="col-md-3">
+                            <input formControlName="institution" class="form-control" placeholder="institution" 
+                            [ngClass]="{ 'is-invalid': submitted && study.get('institution').errors }">
+                            <div *ngIf="submitted &&  study.get('institution').errors " class="invalid-feedback">
+                                entrez une institution
+                             </div>
+                          </div>
+                          <div class="col-md-3">
+                            <input type="date" class="form-control" formControlName="graduationDate" placeholder="date" 
+                            [ngClass]="{ 'is-invalid': submitted && study.get('graduationDate').errors }" >
+                            <div *ngIf="submitted &&  study.get('graduationDate').errors " class="invalid-feedback">
+                                entrez la date prévue d'obtention du diplôme
+                             </div>
+                          </div>
+                          
+                          <div class="col-md-2">
+                            <textarea formControlName="mention" style="width:300px" class="form-control" placeholder="mention" 
+                            [ngClass]="{ 'is-invalid': submitted && study.get('mention').errors }">
+                            </textarea>
+                            <div *ngIf="submitted &&  study.get('mention').errors " class="invalid-feedback">
+                                entrez une mention
+                             </div>
+                          </div>
+                          <button type="button" class="btn btn-primary small" (click)="deleteFormationClick(i)">
+                            del
+                          </button>
+                          <button type="button" class="btn btn-primary small plusB" (click)="addFormationClick()">
+                            +
+                          </button>
+
+                        </div>
+
+                      </div>
+                      <br>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <label>Réseaux sociaux</label>
+                  <div>
+                    <div formArrayName="socialMedias" >
+                      <div  *ngFor="let socialMedia  of CVForm.get('socialMedias')['controls']; let i = index">
+                        <div [formGroupName]="i" class="row">
+                          <div class="col-md-4">
+                            <input formControlName="type" class="form-control" placeholder="type" 
+                            [ngClass]="{ 'is-invalid': submitted && socialMedia.get('type').errors }">
+                            <div *ngIf="submitted &&  socialMedia.get('type').errors " class="invalid-feedback">
+                               entrez nomd'un  média social
+                             </div>
+                          </div>
+                          <div class="col-md-4">
+                            <input formControlName="path"  class="form-control" placeholder="lien"
+                            [ngClass]="{ 'is-invalid': submitted && socialMedia.get('path').errors }" >
+                            <div *ngIf="submitted &&  socialMedia.get('path').errors " class="invalid-feedback">
+                                entrez un lien
+                              </div>
+                          </div>
+
+
+                          <button type="button" class="btn btn-primary small" (click)="deleteSocialMediaClick(i)">
+                            del
+                          </button>
+                          <button type="button" class="btn btn-primary small plusB" (click)="addSocialMediaClick()">
+                            +
+                          </button>
+
+                        </div>
+
+                      </div>
+                      <br>
+                    </div>
+                  </div>
+                </div>
+
+              <hr>
+              <button type="submit" class="btn btn-info btn-fill pull-center" >Envoyer Le CV</button>
+              <div class="clearfix"></div>
+            </form>
+          
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+

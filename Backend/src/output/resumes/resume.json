@@ -1,0 +1,37 @@
+{
+  "skills": [{
+    "level": "Débutant",
+    "name": "mahmoud"
+  }],
+  "basics": {
+    "summary": "Applying to Enterprise: sprint\nFor Job:Graphiste\nNationality : afghan\nDriving Licence: True\n",
+    "phone": "mahmoud",
+    "name": "mahmoud mahmoud",
+    "profiles": [{
+      "url": "mahmoud",
+      "network": "mahmoud"
+    }],
+    "location": {"address": "mahmoud"},
+    "email": "mahmoud@mahmoud.mahmoud",
+    "picture": "C:\\Users\\Tawfik\\Documents\\GitHub\\deploy-babe\\Backend/src/output/images/image3.jpeg"
+  },
+  "education": [{
+    "area": "mahmoud",
+    "institution": "mahmoud",
+    "endDate": "2019-12-31"
+  }],
+  "languages": [{
+    "fluency": "debutant",
+    "language": "mahmoud"
+  }],
+  "work": [{
+    "endDate": "2019-12-31",
+    "company": "mahmoud",
+    "position": "mahmoud",
+    "startDate": "2019-12-31"
+  }],
+  "interests": [{
+    "keywords": ["mahmoud"],
+    "name": "mahmoud"
+  }]
+}

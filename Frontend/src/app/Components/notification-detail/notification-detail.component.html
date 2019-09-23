@@ -1,0 +1,89 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!-- details card section starts from here -->
+<section class="details-card" *ngIf="notification">
+    <h2>Details de la notification</h2>
+    <hr>
+    <div class="container">
+        <div class="row">
+          
+
+                <div class="col-md-12 " >
+                    <div class="divup" >
+                        <div class="card-content">
+                            <div class="card-img">
+                                <img src="https://placeimg.com/380/230/tech" alt="">
+                               
+                            </div>
+
+                            <div class="card-desc">
+                                <h4> </h4>
+                                <h3>
+                                        {{this.loggedUser?.username}}
+                                </h3>
+                                <div class="linediv">
+                                        <h4 >Entreprise:</h4>
+                                        <h3>{{nameEnterprise}}</h3>
+                                </div>
+                                <h4>a accepté votre demande de travail</h4>
+                                <hr>
+                                <div class="row">
+                                <div class="col-md-8">
+                                        <mat-expansion-panel>
+                                                <mat-expansion-panel-header>
+                                                  <mat-panel-description>
+                                                    <h4>Voir details de l'Offre acceptée</h4>
+                                                  </mat-panel-description>
+                                                </mat-expansion-panel-header>
+                                                <div class="card-desc" style="background-color: rgb(141, 126, 126)145, 142, 142)145, 142, 142)">
+                                                        <div class="linediv">
+                                                          
+                                                          <h4>Vous étiez présélectionnés par l’entreprise </h4>
+                                                          <h4 >Entreprise:</h4>
+                                                         <h4>et vous êtes convoqués à la formation de
+                                                          préparation à l’entretien d’embauche qui aura lieu le 14 octobre 2019 au HUB Dar El Ourabi
+                                                          à la Manouba à partir de 9h.veuillez confirmer votre présence</h4>
+                                                          <h3 style="color: black">{{this.selectedJobOffer?.enterprise.name}}</h3>
+                                                        
+                                                        </div>
+                                                        <hr>
+                                                        <div class="linediv">
+                                                          <h4 >Addresse:</h4>
+                                                          <h3 style="color: black">{{this.selectedJobOffer?.town}}</h3>
+                                                        </div>
+                                                        <hr>
+                                                        <div class="linediv">
+                                                          <h4 >Job:</h4>
+                                                          <h3 style="color: black">{{this.selectedJobOffer?.job.name}}</h3>
+                                                        </div>
+                                                        <hr>
+                                                        <h4>skills:</h4>
+                                                        <div *ngFor="let skill of this.selectedJobOffer?.skills" >
+                                                          <h3 style="color: black">{{skill}}</h3>
+                                                        </div>
+                                                                                      
+                                                      </div>
+                                        </mat-expansion-panel>
+                                </div>
+                                                            
+                                <div class="col-md-3">
+                                  <button type="button" class="btn btn-primary btn-lg" 
+                                           (click)="Confirmer()" *ngIf="this.selectedJobDemande?.status==='ACCEPTED' && !isConfirmed">Confimer la presence</button> 
+                                   <button type="button" class="btn btn-danger btn-lg" 
+                                            *ngIf="this.selectedJobDemande?.status==='REFUSED'" [disabled]="true">Demande refusée</button> 
+                                  <button type="button" class="btn btn-success btn-lg" 
+                                            *ngIf="this.selectedJobDemande?.status==='CONFIRMED' || isConfirmed ==='true'" [disabled]="true">presence Confimée</button> 
+                              </div>                                    
+                              </div>
+                             </div>
+                          </div>
+                      </div>
+                    </div>
+        </div>
+    </div>
+</section>
+<!-- details card section starts from here -->
+
